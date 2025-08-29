@@ -1,0 +1,26 @@
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>認証成功</title>
+  <style>
+    body { font-family: 'Arial', sans-serif; background: url('https://cdn.glitch.global/4a5c808f-f017-4910-bb68-4a91596873f6/ec49aaec4c382423af363616df4881c2.gif?v=1715618689392') center/cover no-repeat; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+    img { border-radius: 50%; width: 150px; height: 150px; margin-top: 20px; border: 5px solid #fff; }
+    .container { max-width: 80%; padding: 30px; background-color: rgba(50,50,50,0.8); box-shadow:0 4px 8px rgba(50,50,50,0.8); border-radius:10px; text-align:center; animation: fadeIn 1s ease-out; }
+    h1 { color:#ffffff; font-size:3em; margin-bottom:20px; animation:bounce 1s infinite; }
+    p { color:#fff; font-size:1.5em; }
+    a.btn_04 { display:block; text-align:center; vertical-align:middle; text-decoration:none; width:120px; margin:auto; padding:1rem 4rem; font-weight:bold; border:2px solid #27acd9; background:#27acd9; color:#fff; border-radius:100vh; transition:0.5s; }
+    a.btn_04:hover { color:#27acd9; background:#fff; }
+    @keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
+    @keyframes bounce { 0%,20%,50%,80%,100%{transform:translateY(0);} 40%{transform:translateY(-20px);} 60%{transform:translateY(-10px);} }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>認証完了！</h1>
+    <p>{{ username }}さんの認証が完了しました。</p>
+    <img src="{{ useravater }}" alt="User Avatar">
+    <a href="https://discord.com/invite/rserver" class="btn_04">support server</a>
+  </div>
+</body>
+</html>
