@@ -1,16 +1,18 @@
 import os
-import discord
-from discord import app_commands
-from discord.ext import commands
-import supabase
-from flask import Flask
 from threading import Thread
+import discord
+from discord.ext import commands
+from discord import app_commands
+from web import app as flask_app
+import supabase
 
 TOKEN = os.getenv("BOT_TOKEN")
-GUILD_ID = os.getenv("GUILD_ID")
+GUILD_ID = int(os.getenv("GUILD_ID"))
+ROLE_ID = int(os.getenv("ROLE_ID"))
 PASSWORD = "0626094"
 
 intents = discord.Intents.default()
+intents.members = True
 bot = commands.Bot(command_prefix="!", intents=intents)
 
 @bot.event
@@ -50,8 +52,11 @@ async def userdata(interaction: discord.Interaction, user: str, password: str):
 
     await interaction.response.send_message(embed=embed, ephemeral=True)
 
-from web import app as flask_app
 def run_flask():
+    flask_app.bot = bot
+    flask_app.GUILD_ID = GUILD_ID
+    flask_app.ROLE_ID = ROLE_ID
+    flask_app.supabase = supabase
     flask_app.run(host="0.0.0.0", port=8080)
 
 Thread(target=run_flask).start()
