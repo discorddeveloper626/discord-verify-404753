@@ -1,5 +1,5 @@
 import os
-from supabase_client import supabase, save_user, get_user
+from supabase import create_client
 from datetime import datetime
 
 SUPABASE_URL = os.getenv("SUPABASE_URL")
