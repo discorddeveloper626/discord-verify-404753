@@ -4,7 +4,7 @@ import discord
 from discord.ext import commands
 from discord import app_commands
 from web import app as flask_app
-from supabase import create_client
+from supabase_client import supabase, save_user, get_user
 
 TOKEN = os.getenv("BOT_TOKEN")
 GUILD_ID = int(os.getenv("GUILD_ID"))
